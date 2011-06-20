@@ -1,0 +1,4 @@
+Doctrine ORM Extension for Silex
+================================
+This extension sets up Doctrine ORM for Silex by reusing the database connection established with the DBAL extension.
+
