@@ -21,7 +21,13 @@ use Silex\ExtensionInterface;
 class DoctrineORMExtension implements ExtensionInterface
 {
     public function register(Application $app)
-    {
+    {        
+        $dbal = $app['db'];
+
+        if (!$dbal instanceof \Doctrine\DBAL\Connection) {
+            throw new \InvalidArgumentException('$app[\'db\'] must be an instance of \Doctrine\DBAL\Connection'); 
+        }
+        
         $this->loadDoctrineConfiguration($app);
         $this->setOrmDefaults($app);
         $this->loadDoctrineOrm($app);
