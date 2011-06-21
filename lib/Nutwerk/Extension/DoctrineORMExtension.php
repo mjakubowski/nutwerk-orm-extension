@@ -22,6 +22,10 @@ class DoctrineORMExtension implements ExtensionInterface
 {
     public function register(Application $app)
     {
+        if (!$app['db'] instanceof Silex\Extension\DoctrineExtension) {
+            throw new \InvalidArgumentException('$app[\'db\'] must be an instance of Silex\Extension\DoctrineExtension') 
+        }
+        
         $this->loadDoctrineConfiguration($app);
         $this->setOrmDefaults($app);
         $this->loadDoctrineOrm($app);
