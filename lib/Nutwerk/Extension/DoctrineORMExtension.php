@@ -76,11 +76,9 @@ class DoctrineORMExtension implements ExtensionInterface
             $chain = new DriverChain;
             foreach((array)$app['db.orm.entities'] as $entity) {
                 switch($entity['type']) {
+                    case 'default':
                     case 'annotation':
-                        $reader = new AnnotationReader;
-                        $reader->setDefaultAnnotationNamespace('Doctrine\\ORM\\Mapping\\');
-                        $reader->setAnnotationNamespaceAlias('Doctrine\\ORM\\Mapping\\', 'orm');
-                        $driver = new AnnotationDriver($reader, (array)$entity['path']);
+                        $driver = $config->newDefaultAnnotationDriver((array)$entity['path']);
                         $chain->addDriver($driver, $entity['namespace']);
                         break;
                     case 'yml':
