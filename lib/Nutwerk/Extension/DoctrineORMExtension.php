@@ -16,9 +16,9 @@ use Doctrine\Common\Cache\ArrayCache;
 use Doctrine\Common\EventManager;
 
 use Silex\Application;
-use Silex\ExtensionInterface;
+use Silex\ServiceProviderInterface;
 
-class DoctrineORMExtension implements ExtensionInterface
+class DoctrineORMExtension implements ServiceProviderInterface
 {
     public function register(Application $app)
     {        
