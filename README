@@ -30,3 +30,8 @@ $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
 By default this setup assumes you put your entities beneath app/Entity/*
 
 The EntityManager will be available by $app['db.orm.em']
+
+By default the ArrayCache is used for doctrine caching. This may only be useful in development,
+so if you want to use another cache you can set it by adding the correspondig config key:
+
+'db.orm.cache' => new Doctrine\Common\Cache\ApcCache(),

@@ -56,6 +56,7 @@ class DoctrineORMServiceProvider implements ServiceProviderInterface
             'proxies_dir'           => 'cache/doctrine/Proxy',
             'proxies_namespace'     => 'DoctrineProxy',
             'auto_generate_proxies' => true,
+            'cache'                 => new ArrayCache,
         );
         foreach ($defaults as $key => $value) {
             if (!isset($app['db.orm.' . $key])) {
@@ -68,8 +69,8 @@ class DoctrineORMServiceProvider implements ServiceProviderInterface
     {
         $app['db.orm.config'] = $app->share(function() use($app) {
 
+            $cache = $app['db.orm.cache'];
             $config = new ORMConfiguration;
-            $cache = new ArrayCache;
             $config->setMetadataCacheImpl($cache);
             $config->setQueryCacheImpl($cache);
 
