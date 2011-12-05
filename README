@@ -1,5 +1,5 @@
-Doctrine ORM Extension for Silex
-================================
+Doctrine ORM Service Provider for Silex
+=======================================
 This extension sets up Doctrine ORM for Silex by reusing the database connection established with the DBAL extension.
 
 
@@ -14,7 +14,7 @@ Download Doctrine ORM package to /path/to/silex_project/vendor/doctrine2-orm
 Edit your index.php:
 
 $app['autoloader']->registerNamespace('Nutwerk', __DIR__.'/vendor/nutwerk-orm-extension/lib');
-$app->register(new Nutwerk\Extension\DoctrineORMExtension(), array(
+$app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
     'db.orm.class_path'            => __DIR__.'/vendor/doctrine2-orm/lib',
     'db.orm.proxies_dir'           => __DIR__.'/var/cache/doctrine/Proxy',
     'db.orm.proxies_namespace'     => 'DoctrineProxy',

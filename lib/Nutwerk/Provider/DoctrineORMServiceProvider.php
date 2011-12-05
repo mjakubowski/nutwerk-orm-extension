@@ -1,5 +1,5 @@
 <?php
-namespace Nutwerk\Extension;
+namespace Nutwerk\Provider;
 
 use Doctrine\DBAL\DriverManager;
 use Doctrine\DBAL\Configuration as DBALConfiguration;
@@ -18,7 +18,7 @@ use Doctrine\Common\EventManager;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
-class DoctrineORMExtension implements ServiceProviderInterface
+class DoctrineORMServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {        
