@@ -70,8 +70,8 @@ class DoctrineORMExtension implements ServiceProviderInterface
 
             $config = new ORMConfiguration;
             $cache = new ArrayCache;
-            $config->setMetadataCacheImpl($cache);
-            $config->setQueryCacheImpl($cache);
+            $config->setMetadataCacheImpl($app['db.orm.cache']);
+            $config->setQueryCacheImpl($app['db.orm.cache']);
 
             $chain = new DriverChain;
             foreach((array)$app['db.orm.entities'] as $entity) {
