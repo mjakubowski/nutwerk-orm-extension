@@ -26,6 +26,7 @@ $app->register(new Nutwerk\Provider\DoctrineORMServiceProvider(), array(
     )),
 ));
 
+Note: the db.orm.class_path parameter is optional (useful if you'd like to use another class loading mechanism than the one provided by Silex).
 
 By default this setup assumes you put your entities beneath app/Entity/*
 
