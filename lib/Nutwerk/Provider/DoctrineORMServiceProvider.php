@@ -32,7 +32,9 @@ class DoctrineORMServiceProvider implements ServiceProviderInterface
         $this->setOrmDefaults($app);
         $this->loadDoctrineOrm($app);
 
-        $app['autoloader']->registerNamespace('Doctrine\\ORM', $app['db.orm.class_path']);
+        if(isset($app['db.orm.class_path'])) {
+            $app['autoloader']->registerNamespace('Doctrine\\ORM', $app['db.orm.class_path']);
+        }
     }
 
     private function loadDoctrineOrm(Application $app)
