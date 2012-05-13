@@ -93,8 +93,24 @@ Below you'll find all the parameters with their defaults (they can also be found
 
     _Default:_ ``new ArrayCache``
 
-    Defines what caching method should be used. The default (ArrayCache) should be fine when you're developing, but in a production environment you probably want to change this to something like APC or Memcache.
+    Defines what caching method should be used for both the Metadata cache and the Query cache. The default (ArrayCache) should be fine when you're developing, but in a production environment you probably want to change this to something like APC or Memcache.
     More information can be found in [Chapter 22. Caching](http://docs.doctrine-project.org/projects/doctrine-orm/en/2.1/reference/caching.html "Doctrine 2 ORM 2.1 Documentation") of the Doctrine 2 ORM 2.1 documentation.
+
+*   __db.orm.cache_metadata__
+
+    _Default:_ db.orm.cache
+
+    If you wish to use a different caching method for your Metadata cache than the one defined in db.orm.cache, you can set it using this parameter.
+
+*   __db.orm.cache_query__
+
+    _Default:_ db.orm.cache
+
+    If you wish to use a different caching method for your Query cache than the one defined in db.orm.cache, you can set it using this parameter.
+
+*   __db.orm.cache_result__
+
+    Set this parameter if you wish to configure result caching.
 
 *   __db.orm.class_path__
 
