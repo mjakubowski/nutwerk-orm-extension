@@ -1,0 +1,26 @@
+{
+    "name": "nutwerk/doctrine-orm-provider",
+    "description": "Doctrine ORM provider for Silex",
+    "keywords": ["silex", "doctrine", "orm", "database", "extension", "provider"],
+    "homepage": "https://github.com/mjakubowski/nutwerk-orm-extension",
+    "authors": [
+        { "name": "Marc Jakubowski", "homepage": "http://nutwerk.de/" }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "doctrine/orm": "2.1.*",
+        "doctrine/common": "2.1.*",
+        "doctrine/dbal": "2.1.*"
+    },
+    "suggest": {
+        "symfony/console": "Necessary if you would like to use the Doctrine CLI tools"
+    },
+    "autoload": {
+        "psr-0": { "Nutwerk\\Provider": "lib/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
