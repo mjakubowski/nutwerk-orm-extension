@@ -71,11 +71,22 @@ class DoctrineORMServiceProvider implements ServiceProviderInterface
     {
         $app['db.orm.config'] = $app->share(function() use($app) {
 
-            $cache = $app['db.orm.cache'];
             $config = new ORMConfiguration;
-            $config->setMetadataCacheImpl($cache);
-            $config->setQueryCacheImpl($cache);
 
+            // Metadata Cache (defaults to db.orm.cache)
+            $metadataCache = (isset($app['db.orm.cache_metadata'])) ? $app['db.orm.cache_metadata'] : $app['db.orm.cache'];
+            $config->setMetadataCacheImpl($metadataCache);
+
+            // Query Cache (defaults to db.orm.cache)
+            $queryCache = (isset($app['db.orm.cache_query'])) ? $app['db.orm.cache_query'] : $app['db.orm.cache'];
+            $config->setQueryCacheImpl($queryCache);
+            
+            // Result Cache (not configured by default)
+            if(isset($app['db.orm.cache_result'])) {
+                $config->setResultCacheImpl($app['db.orm.cache_result']);
+            }
+
+            // Entities / Drivers
             $chain = new DriverChain;
             foreach((array)$app['db.orm.entities'] as $entity) {
                 switch($entity['type']) {
