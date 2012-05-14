@@ -20,7 +20,7 @@ You'll find the following topics in this README:
 You basically have three options to add this extension to your Silex project. We'd strongly recommend the first option!
 
 ### composer.json
-_COMING SOON! (see issue: mjakubowski/nutwerk-orm-extension#8 )_
+http://packagist.org/packages/nutwerk/doctrine-orm-provider
 
 Add 'nutwerk/doctrine-orm-provider' to the dependencies in your projects composer.json file and update your dependencies.
 This is by far the easiest way, since it automatically adds the Doctrine dependencies and adds everything to the autoloading mechanism supplied by Composer.
