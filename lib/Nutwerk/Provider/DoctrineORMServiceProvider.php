@@ -109,4 +109,8 @@ class DoctrineORMServiceProvider implements ServiceProviderInterface
             return $config;
         });
     }
+
+    public function boot(Application $app)
+    {
+    }
 }
